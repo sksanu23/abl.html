@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Velvet & Vanilla Cafe</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background-color: #fff8ef;
+            color: #39271f;
+        }
+
+        header {
+            background-color: #39271f;
+            color: #fff8ef;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h2 {
+            margin: 0;
+            color: #f4bd83;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #f4bd83;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(#0006, #0006),
+            url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0")
+            center/cover;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 10px;
+        }
+
+        .hero p {
+            font-size: 19px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #c47b48;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #92512d;
+        }
+
+        section {
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #bd7746;
+            font-style: italic;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .item {
+            background: white;
+            width: 260px;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #0001;
+        }
+
+        .item img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .price {
+            color: #b76b37;
+            font-weight: bold;
+        }
+
+        .ambience {
+            background-color: #ead7c3;
+        }
+
+        .chefs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .chef {
+            width: 230px;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .chef img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .review {
+            max-width: 600px;
+            margin: 15px auto;
+            background: white;
+            padding: 20px;
+            border-left: 5px solid #c47b48;
+            border-radius: 8px;
+        }
+
+        .details {
+            background: #ead7c3;
+            line-height: 1.9;
+        }
+
+        form {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 9px 0;
+            border: 1px solid #d7c3b2;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        footer {
+            background: #39271f;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .item {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>☕ Velvet & Vanilla</h2>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#chefs">Our Chefs</a>
+        <a href="#about">About</a>
+        <a href="#reserve">Reserve</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <p class="subtitle">GOOD FOOD, BEAUTIFUL MOMENTS</p>
+    <h1>A Little Taste of Heaven</h1>
+    <p>Where every meal feels like a warm hug.</p>
+    <a href="#menu" class="btn">Explore Our Menu</a>
+</div>
+
+<section id="menu">
+    <p class="subtitle">MADE WITH LOVE</p>
+    <h1>Our Signature Menu</h1>
+    <p>Fresh ingredients, delicious flavours, unforgettable memories.</p>
+
+    <div class="menu">
+
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601" alt="Pasta">
+            <h3>Creamy Italian Pasta</h3>
+            <p>Rich, creamy sauce with herbs and parmesan.</p>
+            <p class="price">₹249</p>
+        </div>
+
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Pizza">
+            <h3>Garden Fresh Pizza</h3>
+            <p>Cheesy pizza topped with fresh vegetables.</p>
+            <p class="price">₹299</p>
+        </div>
+
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Coffee">
+            <h3>Caramel Latte</h3>
+            <p>Freshly brewed coffee with sweet caramel.</p>
+            <p class="price">₹149</p>
+        </div>
+
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Chocolate cake">
+            <h3>Chocolate Dream Cake</h3>
+            <p>Soft chocolate cake for your sweet cravings.</p>
+            <p class="price">₹179</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="ambience" id="about">
+    <p class="subtitle">MORE THAN JUST A CAFE</p>
+    <h1>Your Happy Place</h1>
+    <p>
+        Velvet & Vanilla is a cosy little escape from your busy day.
+        Enjoy handcrafted food, warm lighting, soft music and
+        special moments with the people you love.
+    </p>
+    <p>✨ Cosy Interiors | ☕ Fresh Coffee | 🍰 Handmade Desserts</p>
+</section>
+
+<section id="chefs">
+    <p class="subtitle">THE PEOPLE BEHIND THE FLAVOUR</p>
+    <h1>Meet Our Chefs</h1>
+
+    <div class="chefs">
+
+        <div class="chef">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c" alt="Head chef">
+            <h3>Chef Arjun</h3>
+            <p>Head Chef — Italian Cuisine</p>
+        </div>
+
+        <div class="chef">
+            <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548" alt="Pastry chef">
+            <h3>Chef Meera</h3>
+            <p>Pastry Chef — Cakes & Desserts</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <p class="subtitle">KIND WORDS FROM OUR GUESTS</p>
+    <h1>Customer Love</h1>
+
+    <div class="review">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Beautiful ambience, amazing pasta and the best coffee!"</p>
+        <b>— Ananya</b>
+    </div>
+
+    <div class="review">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"The desserts are delicious. A perfect place to hang out."</p>
+        <b>— Rahul</b>
+    </div>
+</section>
+
+<section class="details">
+    <h1>Visit Our Cafe</h1>
+    <p>📍 Location: Main Road, Vijayawada, Andhra Pradesh</p>
+    <p>🕒 Monday – Sunday: 9:00 AM – 10:00 PM</p>
+    <p>📞 Phone: +91 98765 43210</p>
+</section>
+
+<section id="reserve">
+    <p class="subtitle">YOUR TABLE IS WAITING</p>
+    <h1>Reserve a Table</h1>
+    <p>Plan a lovely meal with friends and family.</p>
+
+    <form onsubmit="alert('Thank you! Your reservation request has been submitted.'); return false;">
+
+        <input type="text" placeholder="Your Full Name" required>
+
+        <input type="email" placeholder="Your Email Address" required>
+
+        <input type="tel" placeholder="Phone Number"
+               pattern="[0-9]{10}"
+               title="Enter a 10-digit phone number" required>
+
+        <input type="date" required>
+
+        <select required>
+            <option value="">Select Time</option>
+            <option>10:00 AM</option>
+            <option>12:00 PM</option>
+            <option>2:00 PM</option>
+            <option>6:00 PM</option>
+            <option>8:00 PM</option>
+        </select>
+
+        <select required>
+            <option value="">Number of Guests</option>
+            <option>1 Person</option>
+            <option>2 People</option>
+            <option>3 People</option>
+            <option>4 People</option>
+            <option>5 or More</option>
+        </select>
+
+        <button type="submit" class="btn">Book My Table</button>
+
+    </form>
+</section>
+
+<footer>
+    <h2>☕ Velvet & Vanilla</h2>
+    <p>Made with love, served with happiness.</p>
+    <p>© 2026 Velvet & Vanilla Cafe</p>
+</footer>
+
+</body>
+</html>
