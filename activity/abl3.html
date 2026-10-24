@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globe & Waves | Travel Agency</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f9f7;
+            color: #23433e;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: #ffffff;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px #c9dcd5;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #267c70;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34544d;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e49a68;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 520px;
+            padding: 85px 8%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg,
+                rgba(13, 55, 55, 0.78),
+                rgba(18, 77, 77, 0.18)),
+                url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 580px;
+        }
+
+        .tag {
+            color: #d6eee0;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #f0f7f5;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e6a77b;
+            color: #243e37;
+            padding: 12px 23px;
+            border-radius: 7px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #f0c29f;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 65px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading p {
+            color: #718a82;
+            margin-top: 7px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+            color: #245c52;
+        }
+
+        /* Destination Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px #dce9e3;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 19px;
+        }
+
+        .card h3 {
+            color: #267c70;
+            margin-bottom: 7px;
+        }
+
+        .details {
+            font-size: 13px;
+            color: #73877f;
+            margin: 8px 0;
+        }
+
+        .price {
+            color: #bd7950;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        /* About Section */
+        .about {
+            background: #e5f1ec;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .about h2 {
+            font-size: 31px;
+            color: #245c52;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            margin-bottom: 15px;
+            color: #526e65;
+        }
+
+        /* Itinerary */
+        .itinerary {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .day {
+            background: white;
+            padding: 18px 22px;
+            border-left: 4px solid #7bb5a2;
+            margin-bottom: 15px;
+            border-radius: 7px;
+            box-shadow: 0 3px 12px #e0ebe5;
+        }
+
+        .day h3 {
+            color: #267c70;
+        }
+
+        /* Inquiry Form */
+        .contact {
+            background: #e5f1ec;
+        }
+
+        .form-box {
+            max-width: 650px;
+            background: white;
+            padding: 30px;
+            margin: auto;
+            border-radius: 13px;
+            box-shadow: 0 4px 18px #d4e5dc;
+        }
+
+        .form-box label {
+            display: block;
+            margin: 12px 0 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-box input,
+        .form-box select,
+        .form-box textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cadbd3;
+            border-radius: 6px;
+            font-family: inherit;
+            background: #fbfdfc;
+        }
+
+        .form-box textarea {
+            resize: vertical;
+        }
+
+        .form-box .btn {
+            margin-top: 18px;
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: #214c45;
+            color: #e6f2ed;
+            padding: 27px 8%;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 7%;
+                min-height: 440px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+
+            .form-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">🌍 Globe & Waves</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#packages">Packages</a>
+            <a href="#itinerary">Itinerary</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tag">FIND YOUR NEXT ESCAPE</span>
+            <h1>Let the World Be Your Story.</h1>
+            <p>
+                From turquoise oceans to peaceful green forests,
+                discover beautiful places and create memories
+                that stay with you forever.
+            </p>
+            <a href="#destinations" class="btn">Explore Destinations →</a>
+        </div>
+    </section>
+
+    <!-- Destinations -->
+    <section id="destinations">
+        <div class="section-heading">
+            <h2>Places That Feel Like Paradise</h2>
+            <p>Discover your next favorite corner of the world.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                     alt="Beautiful tropical ocean">
+                <div class="card-content">
+                    <h3>Maldives 🐚</h3>
+                    <p>Crystal-clear waters, soft beaches and dreamy sunsets.</p>
+                    <p class="details">⏳ 4 Days / 3 Nights</p>
+                    <p class="price">₹24,999</p>
+                    <a href="#contact" class="btn">Plan This Trip</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80"
+                     alt="Green forest and wildlife">
+                <div class="card-content">
+                    <h3>Kerala 🌿</h3>
+                    <p>Green hills, peaceful backwaters and tropical nature.</p>
+                    <p class="details">⏳ 5 Days / 4 Nights</p>
+                    <p class="price">₹14,999</p>
+                    <a href="#contact" class="btn">Plan This Trip</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
+                     alt="Snowy mountain landscape">
+                <div class="card-content">
+                    <h3>Swiss Alps 🏔️</h3>
+                    <p>Majestic mountains, fresh air and magical views.</p>
+                    <p class="details">⏳ 6 Days / 5 Nights</p>
+                    <p class="price">₹69,999</p>
+                    <a href="#contact" class="btn">Plan This Trip</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div>
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80"
+                 alt="Beautiful mountain and forest landscape">
+        </div>
+        <div>
+            <h2>Your Journey, Your Way.</h2>
+            <p>
+                At Globe & Waves, we believe travel is more than
+                visiting places. It is about feeling the ocean breeze,
+                walking through green forests and meeting new cultures.
+            </p>
+            <p>✓ Carefully planned holiday packages</p>
+            <p>✓ Flexible trip durations</p>
+            <p>✓ Nature-inspired travel experiences</p>
+            <p>✓ Personalized travel planning</p>
+            <a href="#contact" class="btn">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Holiday Packages -->
+    <section id="packages">
+        <div class="section-heading">
+            <h2>Choose Your Holiday Mood</h2>
+            <p>Little escapes, big adventures.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🌊 Ocean Escape</h3>
+                    <p>Beach walks, island views and relaxing sunsets.</p>
+                    <p class="details">Duration: 3–4 days</p>
+                    <p class="price">From ₹9,999</p>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🌲 Nature Retreat</h3>
+                    <p>Forest trails, waterfalls and peaceful stays.</p>
+                    <p class="details">Duration: 4–5 days</p>
+                    <p class="price">From ₹12,999</p>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🌍 Global Explorer</h3>
+                    <p>Explore new countries, cultures and iconic places.</p>
+                    <p class="details">Duration: 6–7 days</p>
+                    <p class="price">From ₹39,999</p>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sample Itinerary -->
+    <section id="itinerary">
+        <div class="section-heading">
+            <h2>A Glimpse of Your Trip</h2>
+            <p>Sample 3-day tropical holiday itinerary.</p>
+        </div>
+
+        <div class="itinerary">
+            <div class="day">
+                <h3>Day 1 — Arrival & Ocean Views</h3>
+                <p>Check in, explore the beach and enjoy a sunset walk.</p>
+            </div>
+
+            <div class="day">
+                <h3>Day 2 — Island Adventure</h3>
+                <p>Discover nearby islands, enjoy water activities and relax.</p>
+            </div>
+
+            <div class="day">
+                <h3>Day 3 — Nature & Departure</h3>
+                <p>Enjoy a peaceful morning, take photos and return home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Inquiry Form -->
+    <section class="contact" id="contact">
+        <div class="section-heading">
+            <h2>Let's Plan Your Getaway ✈️</h2>
+            <p>Tell us what your dream holiday looks like.</p>
+        </div>
+
+        <form class="form-box" onsubmit="sendInquiry(event)">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="destination">Choose Destination</label>
+            <select id="destination" required>
+                <option value="">Select a destination</option>
+                <option>Maldives</option>
+                <option>Kerala</option>
+                <option>Swiss Alps</option>
+                <option>Other Destination</option>
+            </select>
+
+            <label for="duration">Trip Duration</label>
+            <select id="duration" required>
+                <option value="">Choose duration</option>
+                <option>1–3 Days</option>
+                <option>4–5 Days</option>
+                <option>6–7 Days</option>
+                <option>More than 7 Days</option>
+            </select>
+
+            <label for="date">Preferred Travel Date</label>
+            <input type="date" id="date" required>
+
+            <label for="message">Your Travel Ideas</label>
+            <textarea id="message" rows="4"
+                      placeholder="Tell us your budget or dream activities"></textarea>
+
+            <button type="submit" class="btn">Send Travel Inquiry ✈️</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>🌍 Globe & Waves</h3>
+        <p>Find your horizon. Follow your heart.</p>
+        <p>© 2026 Globe & Waves | Travel Beyond Ordinary</p>
+    </footer>
+
+    <script>
+        function sendInquiry(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const destination = document.getElementById("destination").value;
+
+            alert(
+                "Thank you, " + name + "! 🌍\n" +
+                "Your inquiry for " + destination +
+                " has been prepared. Our demo does not send it to a travel agency."
+            );
+        }
+    </script>
+
+</body>
+</html>
